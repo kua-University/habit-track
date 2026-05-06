@@ -1,39 +1,200 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   padding: 20px;
 }
+
 .container {
   max-width: 600px;
   margin: 0 auto;
   background: white;
   border-radius: 20px;
   padding: 30px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
-.header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-h1 { font-size: 28px; }
-.status { font-size: 12px; padding: 4px 12px; border-radius: 20px; }
-.connected { background: #d4edda; color: #155724; }
-.disconnected { background: #f8d7da; color: #721c24; }
-.subtitle { text-align: center; color: #666; margin-bottom: 30px; }
-.stats { display: flex; gap: 15px; margin-bottom: 30px; }
-.stat { flex: 1; text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; color: white; cursor: pointer; }
-.stat-value { font-size: 32px; font-weight: bold; }
-.habit-list { max-height: 400px; overflow-y: auto; margin-bottom: 20px; }
-.habit-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; margin-bottom: 10px; background: #f8f9fa; border-radius: 12px; }
-.habit-name { font-size: 18px; font-weight: 600; }
-.completed { text-decoration: line-through; color: #999; }
-.badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; color: white; margin-left: 8px; background: #ff9800; }
-.streak { font-size: 12px; color: #ff9800; margin-top: 5px; }
-.delete-btn { background: #dc3545; color: white; border: none; padding: 8px 12px; border-radius: 8px; margin-right: 8px; cursor: pointer; }
-.check-btn { background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; }
-.check-btn:disabled { background: #ccc; cursor: not-allowed; }
-.add-habit { display: flex; gap: 10px; margin-top: 20px; }
-.add-habit input { flex: 2; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
-.add-habit select { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
-.add-habit button, .export-btn { padding: 12px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; margin-top: 10px; width: 100%; }
-.message { margin-top: 15px; padding: 10px; background: #e8f5e9; color: #2e7d32; border-radius: 8px; text-align: center; }
-.loading { text-align: center; padding: 50px; font-size: 20px; color: white; }git log
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 28px;
+  color: #333;
+}
+
+.status {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.connected {
+  background: #d4edda;
+  color: #155724;
+}
+
+.disconnected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.stats {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.habit-list {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.habit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.habit-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #ff9800;
+  color: white;
+  margin-left: 8px;
+}
+
+.streak {
+  font-size: 12px;
+  color: #ff9800;
+  margin-top: 5px;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.check-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.check-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.add-habit {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.add-habit input {
+  flex: 2;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.add-habit select {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.add-habit button {
+  padding: 12px 20px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.export-btn {
+  width: 100%;
+  padding: 12px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.message {
+  margin-top: 15px;
+  padding: 10px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 20px;
+  color: white;
+}
