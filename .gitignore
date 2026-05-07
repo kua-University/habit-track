@@ -1,13 +1,13 @@
 # Dependencies
 node_modules/
 npm-debug.log
-yarn-debug.log
-yarn-error.log
 
-# Environment variables
+# Environment
 .env
-.env.local
-.env.production
+*.env
+
+# Swap files
+*.swp
 
 # Build outputs
 build/
@@ -15,16 +15,13 @@ dist/
 *.db
 *.db-journal
 
-# IDE files
+# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
 
 # Logs
 *.log
-logs/
