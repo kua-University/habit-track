@@ -1,10 +1,9 @@
 # 📅 Habit Tracker - Redesigned Architecture
 
-## SENG5232 | Aklilu Tesfay | Mekelle University
 
 ---
 
-## 📄 Deliverable #6
+## 📄 for better clarification
 
 👉 **[Download Redesigned Architecture PDF](docs/redesigned-architecture.pdf)**
 
