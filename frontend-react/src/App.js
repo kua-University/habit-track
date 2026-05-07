@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const API_URL = 'http://localhost:4000/api';
+// Detect environment
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? '/api'  // When in Docker, use nginx proxy
+  : 'http://localhost:3001/api';
 
 function App() {
   const [habits, setHabits] = useState([]);
@@ -130,6 +133,7 @@ function App() {
 
       <div className="add-habit">
         <input type="text" placeholder="New habit..." value={newHabit} onChange={e => setNewHabit(e.target.value)} onKeyPress={e => e.key === 'Enter' && addHabit()} />
+       
         <select value={goalType} onChange={e => setGoalType(e.target.value)}><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option></select>
         <button onClick={addHabit}>+ Add</button>
       </div>
@@ -138,5 +142,5 @@ function App() {
     </div>
   );
 }
-
 export default App;
+

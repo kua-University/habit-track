@@ -3,7 +3,7 @@ const cors = require('cors');
 const pool = require('./database');
 
 const app = express();
-const PORT = 4000; // Fixed port for backend
+const PORT = 3001; // Fixed port for backend
 
 app.use(cors());
 app.use(express.json());

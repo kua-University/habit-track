@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: habit-track-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "Aklil1919"
+      POSTGRES_DB: habit_track
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - habit-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    container_name: habit-track-backend
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: "@Aklil19"
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: habit_track
+      PORT: 3001
+    ports:
+      - "3001:3001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - habit-network
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend-react
+    container_name: habit-track-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - habit-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  habit-network:
+    driver: bridge
