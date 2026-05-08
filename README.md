@@ -5,7 +5,7 @@
 
 ## 📄 for better clarification
 
-👉 **[Download Redesigned Architecture PDF](docs/redesigned-architecture.pdf)**
+👉 **[Download Redesigned Architecture PDF]([docs/redesigned-architecture.pdf](https://drive.google.com/file/d/1fYR9hAVFB8P5yRE3Kin6rgnU8GVINt60/view))**
 
 ---
 
